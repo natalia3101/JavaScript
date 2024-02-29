@@ -12,6 +12,7 @@
 
 Уточнение: пользователь всегда вводит корректное число.
 */
-let C = prompt('Enter degrees in Celsius:');
-let F = (9 / 5) * C + 32;
+const C = +prompt('Enter degrees in Celsius:');
+const F = Math.round((9 / 5) * C + 32);
+// округлит до целого числа
 alert(`Цельсий: ${C}, Фаренгейт: ${F}`);
