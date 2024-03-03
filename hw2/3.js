@@ -15,9 +15,9 @@
 */
 const dayNumber = Number.parseInt(prompt('enter a number from the interval [1, 32)'));
 if (dayNumber >= 1 && dayNumber < 32) {
-    if (dayNumber >= 1 && dayNumber <= 10) {
+    if (dayNumber <= 10) {
         console.log(`Число ${dayNumber} попадает в первую декаду месяца.`);
-    } else if (dayNumber > 10 && dayNumber <= 20) {
+    } else if (dayNumber <= 20) {
         console.log(`Число ${dayNumber} попадает во вторую декаду месяца.`);
     } else {
         console.log(`Число ${dayNumber} попадает в третью декаду месяца.`);

@@ -15,7 +15,7 @@
 const positiveNumber = Number.parseInt(prompt('enter a positive number'));
 const negativeNumber = Number.parseInt(prompt('enter a negative number'));
 if (positiveNumber > 0 && negativeNumber < 0) {
-    alert(`The numbers are correct`)
+    alert(`The numbers are correct`);
 } else {
-    alert(`One or more numbers are incorrect`)
+    alert(`One or more numbers are incorrect`);
 }
