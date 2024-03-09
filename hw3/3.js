@@ -15,7 +15,6 @@ const num2 = Number(prompt('Enter the second number'));
 const num3 = Number(prompt('Enter the third number'));
 
 function findMaxNumber(num1, num2, num3) {
-
     if (num1 >= num2 && num1 >= num3) {
         return `Максимальное значение среди чисел ${num1}, ${num2}, ${num3} равно ${num1}.`;
     } else if (num2 > num1 && num2 >= num3) {

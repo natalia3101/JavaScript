@@ -23,6 +23,7 @@ function sum(num1, num2) {
 
 function subtraction(num1, num2) {
     return Math.max(num1, num2) - Math.min(num1, num2);
+    // return Math.abs(num1-num2);
 }
 
 function multiplication(num1, num2) {

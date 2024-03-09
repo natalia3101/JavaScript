@@ -10,6 +10,6 @@
 const number = Number(prompt('enter a number'));
 
 function cube(number) {
-    return number ** 3
+    return number ** 3;
 }
 console.log(cube(number));
