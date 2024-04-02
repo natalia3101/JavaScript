@@ -1,0 +1,23 @@
+ /* Стили для страницы */
+ 
+ .product-list {
+     list-style-type: none;
+     cursor: pointer;
+ }
+ 
+ .review-list {
+     list-style: none;
+     /* Убираем маркеры списка */
+     padding: 0;
+     /* Убираем отступы */
+ }
+ 
+ .review-list li {
+     margin-bottom: 10px;
+     /* Добавляем отступ между отзывами */
+ }
+ 
+ .review-list button {
+     margin-left: 10px;
+     /* Добавляем отступ между кнопкой "Удалить" и текстом отзыва */
+ }
