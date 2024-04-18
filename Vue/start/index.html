@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <!-- <h2>{{sayHello()}}</h2> -->
+        <button v-on:click="changeText"> button</button>
+        <h2>Counter</h2>
+        <!-- <button v-on:click="counter++">add {{counter}}</button> -->
+        <button v-on:click="add(5, $event)">add </button>
+        <!-- 5 is step -->
+        <p>{{counter}}</p>
+        <h2 v-on:mousemove="mouseMover($event)">move mouse {{x}} - {{y}}
+            <span v-on:mousemove.stop.prevent>stop text</span>
+        </h2>
+        <p v-html="bigText"></p>
+
+        <h3 v-if="productAddInCard">add item?</h3>
+        <h3 v-else="!productAddInCard">item added</h3>
+        <h3 v-show="productAddInCard">show</h3>
+        <button @click="productAddInCard = !productAddInCard">Add item</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue',
+                counter: 0,
+                x: 0,
+                y: 0,
+                bigText: '<span>new text info</span>',
+                productAddInCard: true,
+            },
+            methods: {
+                // sayHello() {
+                //     this.message = 'new mes';
+                //     return this.message;
+                // },
+                changeText() {
+                    this.message = 'Text click'
+                },
+                add(step, event) {
+                    this.counter += step;
+                    console.log(event);
+                },
+                mouseMover(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+
+            },
+        })
+    </script>
+
+</body>
+
+</html>

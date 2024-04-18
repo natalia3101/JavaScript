@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New photo every day</title>
+    <script src="task.js" defer></script>
+    <style>
+        .photo-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .photo {
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        
+        .photographer {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .like-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .like-count {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        
+        .show-history-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .history-container {
+            display: none;
+            margin-top: 50px;
+        }
+        
+        .history-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .history-item {
+            margin-bottom: 10px;
+        }
+        
+        .history-photo {
+            max-width: 400px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="photo-container">
+        <!-- Placeholder для изображения -->
+        <img class="photo" src="" alt="Фотография">
+        <!-- Placeholder для имени фотографа -->
+        <p class="photographer"></p>
+        <!-- Кнопка "Лайк" -->
+        <button class="like-button">Like</button>
+        <!-- Счетчик лайков -->
+        <p class="like-count">0</p>
+    </div>
+
+    <button class="show-history-button">Show/Hide history</button>
+
+    <div class="history-container">
+        <h2>History</h2>
+        <ul class="history-list"></ul>
+    </div>
+</body>
+
+</html>
