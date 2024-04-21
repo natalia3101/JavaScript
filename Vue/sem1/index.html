@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{greeting}}</h2>
+        <p>Товаров в корзине {{counter}}</p>
+        <div v-for="product in cart" :key="product.id" class="cartBox">
+            <p class="productName">{{product.productName}}</p>
+            <button @click="addBtn(product)">{{product.buttonText}}</button>
+        </div>
+
+        <button @click="is14years=true">Мне исполнилось 14 лет</button>
+        <button @click="is14years=falsa">Мне еще нет 14 лет</button>
+        <div v-if="is14years">Open content</div>
+        <div v-else>Access denied</div>
+
+        <button @click="showContent = !showContent">Show more</button>
+        <div class="content" v-if="showContent">Lorem ipsum dolor sit amet consectetur.</div>
+
+        <!-- // Создайте кнопку "Генерировать случайное число". При клике на
+        // кнопку должно отображаться случайное число в заданном диапазоне
+        // (например, от 1 до 10).
+        // 2. При клике на кнопку, если полученное значение меньше 5,
+        // необходимо вывести на страницу, “Число меньше 5”
+        // 3. Если число от 5 до 9, необходимо вывести “Число от 5 до 9”
+        // 4. Если число равно 10, необходимо вывести “Число ранов 10” -->
+        <button @click="generateRandomNumber">Generate random number</button>
+        <div>{{randomNumber}}</div>
+        <div>{{numberInfo}}</div>
+
+
+
+
+    </div>
+
+    <script>
+        new Vue({
+                el: '#app',
+                data: {
+                    greeting: 'Hello Vue',
+                    counter: 0,
+                    cart: [{
+                        id: 1,
+                        productName: 'book',
+                        isInCart: false,
+                        buttonText: 'Buy',
+                    }, {
+                        id: 2,
+                        productName: 'book2',
+                        isInCart: false,
+                        buttonText: 'Buy',
+
+                    }, {
+                        id: 3,
+                        productName: 'book3',
+                        isInCart: false,
+                        buttonText: 'Buy',
+
+                    }],
+                    is14years: false,
+                    showContent: false,
+                    randomNumber: 0,
+
+                },
+                methods: {
+                    addBtn(product) {
+                        if (!product.isInCart) {
+                            product.isInCart = true;
+                            this.counter++;
+                            product.buttonText = 'Item is in cart';
+                        }
+                    },
+                    generateRandomNumber() {
+                        this.randomNumber = Math.floor(Math.random() * 10 + 1);
+                    },
+                },
+                computed: {
+                    numberInfo() {
+                        if (this.randomNumber < 5) {
+                            return 'the number is less than 5'
+                        } else if (this.randomNumber >= 5 && this.randomNumber <= 9) {
+                            return 'the number is between 5 and 9'
+                        } else {
+                            return 'the number is 10'
+                        }
+                    }
+                }
+            })
+            // Создать параграф, внутри которого будет отображаться текст
+            // “Товаров в корзине 0”
+            //  Создать кнопку “Купить”, при клике на которую, значение внутри
+            // параграфа будет увеличиваться на 1, при повторном нажатии на эту
+            // кнопку, счетчик не становится больше, добавить 4 таких кнопки
+            // 3. При нажатии на кнопку купить, необходимо чтобы текст внутри
+            // кнопки поменялся на “Товар в Корзине”
+
+
+        //1. Создать две кнопки “Мне исполнилось 14 лет” и “Мне еще нет 14 лет”
+        // 2. Если пользователь нажимает на первую кнопку, то должен
+        // отобразиться текст. “Можете заказать товар”
+        // 3. Если пользователь нажимает на вторую кнопку, отображается текст
+        // “Доступ закрыт”
+
+
+        // 1. Создать кнопку “Показать еще” при клике на которую появляется
+        // контент под кнопкой, при повторном клике, контент необходимо
+        // скрыть
+    </script>
+</body>
+
+</html>

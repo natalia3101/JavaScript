@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Seminar 2
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- Вы разрабатываете страницу для отображения
+    информации о товаре. У вас есть объект product, который
+    содержит информацию о товаре, включая название, цену
+    и URL изображения товара. Вам необходимо отобразить
+    эту информацию на странице с использованием v-bind.
+    2. Добавьте кнопку, которая будет изменять цену товара. При
+    нажатии на кнопку должна генерироваться скидка на
+    товар от 1 до 20% и обновиться цена товара в
+    соответствии с значением скидки -->
+        <!-- <div class="product">{{product.name}}: {{product.price}}</div>
+        <button @click="getDiscount">Get a discount</button>
+        <p>Price with discount is {{priceWithDiscount}}</p> -->
+
+        <!-- Вы разрабатываете простое приложение для
+отображения списка пользователей. У вас есть массив
+объектов users, где каждый объект представляет одного
+пользователя с его именем и возрастом. Вам необходимо
+отобразить каждого пользователя из массива в виде
+списка на странице. -->
+
+        <!-- <div class="productList">
+            <div class="product" v-for="item in productList" :key="item.id">
+                <span>{{item.name}}</span>
+                <input type="number" v-model.number="item.quantity">
+                <input type="checkbox" name="" id="" v-model="item.bought">
+            </div>
+        </div> -->
+        <!-- 
+        Вы разрабатываете приложение для управления списком контактов.
+У вас есть форма с полями "Имя", "Фамилия" и "Email", где
+пользователь может вводить информацию о новом контакте. После
+добавления контакта он должен отображаться в списке контактов.
+Требуется связать форму с данными и отображать список контактов
+на странице. -->
+
+        <div action="">
+            <input type="text" v-model="contact.name" placeholder="Name">
+            <input type="text" v-model="contact.surname" placeholder="Surname">
+            <input type="text" v-model="contact.email" placeholder="Email">
+            <button @click="addContact">Add contact</button>
+        </div>
+
+        <div class="contactList">
+            <div class="contact" v-for="item in contacts" :key="item.id">
+                {{item.name}} {{item.surname}}: {{item.email}}
+            </div>
+        </div>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // product: {
+                //     name: 'chocolade',
+                //     price: 100,
+                // },
+                discount: 0,
+                contact: {
+                    name: '',
+                    surname: '',
+                    email: '',
+                },
+                // productList: [{
+                //     name: 'milk',
+                //     quantity: 1,
+                //     bought: false,
+                // }, {
+                //     name: 'bread',
+                //     quantity: 3,
+                //     bought: false,
+                // }, {
+                //     name: 'chocolade',
+                //     quantity: 6,
+                //     bought: false,
+                // }, ]
+                contacts: [{
+                    id: 1,
+                    name: 'Natalie',
+                    surname: 'Slepenko',
+                    email: 'n@gmail.com',
+                }, {
+                    id: 2,
+                    name: 'Dima',
+                    surname: 'Petrovich',
+                    email: 'd@gmail.com',
+                }, {
+                    id: 3,
+                    name: 'Petr',
+                    surname: 'Papulya',
+                    email: 'p@gmail.com',
+                }, {
+                    id: 4,
+                    name: 'Galina',
+                    surname: 'Mamulya',
+                    email: 'g@gmail.com',
+                }, ]
+            },
+            methods: {
+                getDiscount() {
+                    this.discount = Math.floor(Math.random() * 20);
+                },
+                addContact() {
+                    if (this.contact.name && this.contact.surname && this.contact.email) {
+                        this.contacts.push({
+                            id: this.contacts.length + 1,
+                            ...this.contact,
+                        });
+
+                        this.contact.name = '';
+                        this.contact.surname = '';
+                        this.contact.email = '';
+                    }
+                }
+            },
+            computed: {
+                priceWithDiscount() {
+                    return this.product.price - (this.product.price * this.discount / 100)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

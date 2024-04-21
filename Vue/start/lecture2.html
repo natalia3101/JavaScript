@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .block {
+            width: 350px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="text" @keyup.enter="send()"> <button @click="send()">Send</button>
+        <h2>Link element</h2>
+        <a v-bind:href="linkHref">new link</a> -->
+        <!-- v-bind сокращенно только двоеточие :href -->
+        <!-- <img :src="imgPhoto" alt="photo"> -->
+        <h2>Constructor</h2>
+        <input type="text" v-model="blockWidth">
+        <input type="text" v-model="blockColor">
+        <div class="block" :style='change'>
+            Lorem ipsum dolor sit amet.
+        </div>
+
+
+        <h2>{{modelData}}</h2>
+        <input type="text" v-model.lazy="modelData">
+        <button @click="headingText()" class="heading__button">click heading</button>
+
+
+        <h2>Calculator</h2>
+        <input type="number" v-model.number="firstNumber">
+        <input type="number" v-model.number="secondNumber"> = {{result}}
+        <div> <button @click="summ">+</button>
+            <button @click="minus">-</button>
+            <button @click="mult">*</button>
+            <button @click="divide">/</button>
+        </div>
+
+        <h2>List</h2>
+        <ul>
+            <li v-for="item in listItems" :key="item.id">{{item}}</li>
+        </ul>
+        <input type="text" v-model="newList" @keyup.enter="addItem">
+
+
+        <article v-for="article in data" :key="article.id" class="article">
+            <h2 class="article_title">{{article.title}}</h2>
+            <p class="article_text">{{article.text}}</p>
+            <button>Like</button>
+        </article>
+
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                data: [{
+                    title: 'dkjkdvfnjkvfd',
+                    text: 'lo smsd jk '
+                }, {
+                    title: 'klmkmk',
+                    text: 'lom lzx l s '
+                }, ],
+                newList: '',
+                listItems: [1, 2, 3],
+                blockWidth: 100,
+                blockColor: '#123',
+                // linkHref: 'product.html',
+                // imgPhoto: 'photo.jpg',
+                // styleBlock: {
+                //     backgroundColor: 'green',
+                //     color: 'red',
+                // },
+                modelData: '',
+                firstNumber: 0,
+                secondNumber: 0,
+                result: 0,
+            },
+            methods: {
+                addItem() {
+                    this.listItems.push(this.newList)
+                },
+                send() {
+                    console.log('Data sent');
+                },
+                headingText() {
+                    if (this.modelData === '') {
+                        this.modelData = 'heading of block'
+                    }
+                },
+                summ() {
+                    this.result = this.firstNumber + this.secondNumber
+                },
+                minus() {
+                    this.result = this.firstNumber - this.secondNumber
+                },
+                mult() {
+                    this.result = this.firstNumber * this.secondNumber
+                },
+                divide() {
+                    this.result = this.firstNumber / this.secondNumber
+                },
+
+            },
+            computed: {
+                change() {
+                    return {
+                        backgroundColor: this.blockColor,
+                        width: `${this.blockWidth}px`,
+                        height: `${this.blockWidth}px`,
+                    }
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<!-- 1. Создать кнопку "Перевернуть". При клике на кнопку текст кнопки должен перевернуться и отобразиться в обратном порядке.
+2. Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить".
+3. *Дополнительное задание: При клике на элемент списка он должен быть удален. (по желанию) -->
+
+<body>
+    <div id="app">
+        <button @click="turnText()">{{buttonText}}</button>
+
+        <h2>List</h2>
+        <ul>
+            <li v-for="(item, index) in listItems" :key="index" @click="removeItem(index)">{{item}}</li>
+        </ul>
+        <button @click="addItem">Add</button>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                buttonText: 'Turn',
+                listItems: [],
+            },
+            methods: {
+                turnText() {
+                    this.buttonText = this.buttonText.split('').reverse().join('');
+                },
+                addItem() {
+                    this.listItems.push('New list element');
+                },
+                removeItem(index) {
+                    this.listItems.splice(index, 1);
+                },
+            },
+        })
+    </script>
+
+</body>
+
+</html>
