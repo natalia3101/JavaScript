@@ -123,46 +123,24 @@
         <section class="articles_news center">
             <h2 class="articles_news_title">Articles & News</h2>
             <p class="articles_news_description">It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using.</p>
-            <div class="articles_items">
 
-                <article class="news_box">
-                    <div class="article_box article_box_1">
-                        <img src="images/article1.svg" alt="article1">
-                        <p>Kitchan Design</p>
+            <div class="articles__items articles__items-main">
+                <div v-for="article in articlesMain" :key="article.id" class="article_item">
+                    <div class="articles__items-image">
+                        <img :src="'../project/images/' + article.image" :alt="article.image">
+                        <p class="blog__img-text">{{article.imgText}}</p>
                     </div>
-                    <h3 class="article_subtitle">Let’s Get Solution For Building Construction Work</h3>
-                    <div class="article_wrap-text">
-                        <p class="article_date">26 December,2022 </p>
-                        <button class="beige_button beige_button_small"><img src="images/beige_button_arrow.svg" alt=""></button>
+                    <div class="articles__items_info">
+                        <h2 class="articles__items-title">{{article.itemTitle}}</h2>
+                        <div class="articles__items-text">
+                            <p>{{article.itemData}}</p>
+                            <button class="beige_button beige_button_small"><img src="images/beige_button_arrow.svg" alt=""></button>
+                        </div>
                     </div>
-                </article>
 
-                <article class="news_box">
-                    <div class="article_box article_box_2">
-                        <img src="images/article2.svg" alt="article2">
-                        <p>Living Design</p>
-                    </div>
-                    <h3 class="article_subtitle">Low Cost Latest Invented Interior Designing
-                        <Br> Ideas.</h3>
-                    <div class="article_wrap-text">
-                        <p class="article_date">22 December,2022 </p>
-                        <button class="beige_button beige_button_small"><img src="images/beige_button_arrow.svg" alt=""></button>
-                    </div>
-                </article>
-
-                <article class="news_box">
-                    <div class="article_box article_box_3">
-                        <img src="images/article3.svg" alt="article3">
-                        <p>Interior Design</p>
-                    </div>
-                    <h3 class="article_subtitle">Best For Any Office & Business Interior
-                        <Br> Solution</h3>
-                    <div class="article_wrap-text">
-                        <p class="article_date">25 December,2022 </p>
-                        <button class="beige_button beige_button_small"><img src="images/beige_button_arrow.svg" alt=""></button>
-                    </div>
-                </article>
+                </div>
             </div>
+
         </section>
 
         <footer class="footer center">
@@ -192,6 +170,8 @@
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="scriptMain.js"></script>
 </body>
 
 </html>

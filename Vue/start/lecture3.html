@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="lecture3Comp.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <new-component title="hello counter" :counter="counter">
+
+        </new-component>
+        <!-- <new-component></new-component>
+        <standard-comp></standard-comp> -->
+        <new-component :title="article" v-for="article in articles" :key="article.id">
+        </new-component>
+        <component is="change1"></component>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                articles: ['info article', 'info 2', 'info3'],
+
+            },
+            // methods: {
+            //     newInfo() {
+            //         console.log('hello methods');
+            //     },
+            // },
+            // computed: {
+            //     newComp() {
+            //         return this.message;
+            //     },
+            // },
+        })
+    </script>
+</body>
+
+</html>
