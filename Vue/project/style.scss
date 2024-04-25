@@ -1,5 +1,10 @@
 @import '_footerStyle';
 @import '_blogStyles';
+@import 'blogDetailsStyles';
+$titles-color: #292F36;
+$text-color: #4D5053;
+$title-font-style:'DM Serif Display';
+$text-font-style:'Jost';
 * {
     margin: 0;
     padding: 0;
