@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <CalculatorComp />
+    <img alt="Vue logo" src="./assets/logo.png">
+    <NewComponent text="heeeeello"/>
+    <GalleryComp/>
   </div>
 </template>
 
 <script>
-import CalculatorComp from "./components/CalculatorComp.vue";
+import NewComponent from './components/NewComponent.vue'
+import GalleryComp from './components/GalleryComp.vue'
 
 export default {
   name: 'App',
   components: {
-    CalculatorComp,
+    NewComponent,
+    GalleryComp
   }
 }
 </script>
 
-<style>
+<style lang="scss" >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
